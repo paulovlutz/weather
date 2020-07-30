@@ -4,12 +4,16 @@ class SearchBar extends Component {
   state = { term: '' };
 
   onInputChange = e => {
-    console.log(e.target.value);
+    this.setState({ term: e.target.value });
+  }
+
+  onFormSubmit = e => {
+    e.preventDefault();
   }
 
   render() {
     return (
-      <form className="input-group">
+      <form onSubmit={this.onFormSubmit} className="input-group" style={{ margin: '10px' }}>
         <input
           placeholder="Enter a city to see the forecast"
           className="form-control"
