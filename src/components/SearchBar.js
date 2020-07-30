@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchWeather } from '../actions'
 
 class SearchBar extends Component {
   state = { term: '' };
@@ -9,6 +11,8 @@ class SearchBar extends Component {
 
   onFormSubmit = e => {
     e.preventDefault();
+
+    // Fetch the weather data from the action that contains the axios call
   }
 
   render() {
