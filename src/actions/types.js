@@ -1,1 +1,1 @@
-export const FETCH_WEATHER = 'FETCH_WEATCHER';
+export const FETCH_WEATHER = 'FETCH_WEATHER';

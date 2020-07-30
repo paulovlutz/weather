@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchWeather } from '../actions'
+import { bindActionCreators } from 'redux';
+import fetchWeather from '../actions';
 
 class SearchBar extends Component {
   state = { term: '' };
@@ -13,6 +14,9 @@ class SearchBar extends Component {
     e.preventDefault();
 
     // Fetch the weather data from the action that contains the axios call
+    this.props.fetchWeather(this.state.term);
+
+    this.setState({ term: '' });
   }
 
   render() {
@@ -32,4 +36,10 @@ class SearchBar extends Component {
   }
 }
 
-export default SearchBar;
+const mapDispatchToProps = dispatch => {
+  return (
+    bindActionCreators({ fetchWeather }, dispatch)
+  );
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);
